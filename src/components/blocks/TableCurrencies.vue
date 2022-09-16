@@ -2,9 +2,7 @@
 import { ref } from "vue";
 
 const props = defineProps({
-  activeCurrencies: {
-    type: Array,
-  },
+  activeCurrencies: Array,
 });
 
 const headerTable = [
@@ -15,7 +13,9 @@ const headerTable = [
   "Курс ↺",
   "Изменение",
 ];
+
 const switchEls = ref([]);
+
 const switchCurrensy = (id) => {
   const idx = switchEls.value.indexOf(id);
 
@@ -29,7 +29,7 @@ const switchCurrensy = (id) => {
 
 <template>
   <table class="data w-full">
-    <tbody class="">
+    <tbody>
       <tr>
         <th :key="el" v-for="el in headerTable">
           {{ el }}

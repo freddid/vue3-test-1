@@ -3,9 +3,7 @@ import { computed, ref } from "vue";
 import SelectCurrency from "./blocks/SelectCurrensy.vue";
 
 const props = defineProps({
-  currnecies: {
-    type: Array,
-  },
+  currnecies: Array,
 });
 
 const valSection1 = ref(props.currnecies[0].Value);
@@ -17,6 +15,12 @@ const valОutput = computed(() =>
     ((+valInput.value * +valSection1.value) / +valSection2.value).toFixed(5)
   )
 );
+
+const reversSelectVal = () => {
+  const section1Val = valSection1.value;
+  valSection1.value = valSection2.value;
+  valSection2.value = section1Val;
+};
 </script>
 
 <template>
@@ -26,7 +30,7 @@ const valОutput = computed(() =>
         <SelectCurrency v-model="valSection1" />
         <input v-model="valInput" type="number" />
       </div>
-      <span @click="valInput = valОutput"> ⇄ </span>
+      <span @click="reversSelectVal"> ⇄ </span>
       <div class="w-300px">
         <SelectCurrency v-model="valSection2" />
         <input :value="valОutput" type="number" readonly />

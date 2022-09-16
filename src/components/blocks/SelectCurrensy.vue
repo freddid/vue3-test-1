@@ -2,16 +2,19 @@
 import { useStore } from "vuex";
 const store = useStore();
 
+const props = defineProps({
+  modelValue: String,
+});
+
 const currnecies = store.state.currnecies;
 const emit = defineEmits(["update:modelValue"]);
-
-function updateValue(value) {
-  emit("update:modelValue", value);
-}
 </script>
 
 <template>
-  <select @input="updateValue($event.target.value)">
+  <select
+    @input="emit('update:modelValue', $event.target.value)"
+    :value="modelValue"
+  >
     <option
       v-for="currnecy in currnecies"
       :key="currnecy.ID"

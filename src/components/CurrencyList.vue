@@ -3,21 +3,19 @@ import { computed, ref } from "vue";
 import TableCurrencies from "./blocks/TableCurrencies.vue";
 
 const props = defineProps({
-  currnecies: {
-    type: Array,
-  },
+  currnecies: Array,
 });
 
 const searchVal = ref("");
 
-const activeCurrencies = computed(() => {
-  return props.currnecies.filter(
+const activeCurrencies = computed(() =>
+  props.currnecies.filter(
     (el) =>
       el.CharCode.toUpperCase().includes(searchVal.value.toUpperCase()) ||
       el.Name.toUpperCase().includes(searchVal.value.toUpperCase()) ||
       el.NumCode.includes(searchVal.value)
-  );
-});
+  )
+);
 </script>
 
 <template>
