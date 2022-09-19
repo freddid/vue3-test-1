@@ -17,7 +17,6 @@ const emit = defineEmits(["update:modelValue"]);
     <option
       v-for="currnecy in state.currnecies"
       :key="currnecy.ID"
-      class="p-5px text-14px"
       :value="currnecy.Value / currnecy.Nominal"
     >
       1 {{ currnecy.CharCode }} ---
@@ -29,5 +28,8 @@ const emit = defineEmits(["update:modelValue"]);
 <style scoped>
 select {
   @apply w-full mb-10px border font-bold border-black/10 outline-none py-10px px-5px;
+}
+option {
+  @apply p-5px text-14px;
 }
 </style>
