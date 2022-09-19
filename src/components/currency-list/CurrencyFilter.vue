@@ -1,0 +1,21 @@
+<script setup>
+import { useStore } from "vuex";
+const store = useStore();
+</script>
+
+<template>
+  <div class="flex pb-10px justify-center">
+    <input
+      class="input-search"
+      @input="store.commit('FILTER_CURRENCIES', $event.target.value)"
+      placeholder="Поиск валюты"
+      type="text"
+    />
+  </div>
+</template>
+
+<style scoped>
+.input-search {
+  @apply border border-black/10 rounded-5px p-10px text-20px outline-none;
+}
+</style>

@@ -1,26 +1,16 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex'
+import actions from './actions'
+import mutations from './mutations'
 
 const store = createStore({
   state: {
     currnecies: [],
+    activeComponent: 0,
+    filterCurrencies: []
   },
 
-  mutations: {
-    ADD_CURRENCIES(state, currnecies) {
-      state.currnecies = Object.values(currnecies);
-    },
-  },
+  mutations,
+  actions
+})
 
-  actions: {
-    async GET_CURRENCY({ commit }) {
-      const currneciesData = await fetch(
-        "https://www.cbr-xml-daily.ru/daily_json.js"
-      );
-
-      const { Valute } = await currneciesData.json();
-      commit("ADD_CURRENCIES", Valute);
-    },
-  },
-});
-
-export default store;
+export default store

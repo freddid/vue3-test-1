@@ -1,9 +1,7 @@
 <script setup>
 import { ref } from "vue";
-
-const props = defineProps({
-  activeCurrencies: Array,
-});
+import { useStore } from "vuex";
+const { state } = useStore();
 
 const headerTable = [
   "Цифр. код",
@@ -35,7 +33,7 @@ const switchCurrensy = (id) => {
           {{ el }}
         </th>
       </tr>
-      <tr v-for="currnecy in activeCurrencies" :key="currnecy.ID">
+      <tr v-for="currnecy in state.filterCurrencies" :key="currnecy.ID">
         <td>{{ currnecy.NumCode }}</td>
         <td>{{ currnecy.CharCode }}</td>
         <td>{{ currnecy.Nominal }}</td>
