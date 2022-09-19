@@ -1,6 +1,7 @@
 <script setup>
 import CurrenciesEls from "./CurrenciesEls.vue";
 
+// заголовки столбцов
 const headerTable = [
   "Цифр. код",
   "Букв. код",

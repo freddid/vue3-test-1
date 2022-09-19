@@ -5,10 +5,11 @@ import SelectCurrency from "./SelectCurrensy.vue";
 
 const { state } = useStore();
 
-const section1 = ref(state.currnecies[0].Value);
-const section2 = ref(state.currnecies[0].Value);
-const valInput = ref(0);
+const section1 = ref(state.currnecies[0].Value); // значение первого раздела
+const section2 = ref(state.currnecies[0].Value); // значение второго раздела
+const valInput = ref(0); // значение активного инпута
 
+// конвертация валюты. Значение воторого инпута
 const valОutput = computed(() =>
   parseFloat(((+valInput.value * +section1.value) / +section2.value).toFixed(5))
 );

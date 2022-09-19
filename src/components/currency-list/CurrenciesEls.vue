@@ -3,8 +3,10 @@ import { useStore } from "vuex";
 import { ref } from "vue";
 const { state } = useStore();
 
+// массив обратных значений валют
 const switchEls = ref([]);
 
+// переключатель значения валюты
 const switchCurrensy = (id) => {
   const idx = switchEls.value.indexOf(id);
 

@@ -4,9 +4,9 @@ import mutations from './mutations'
 
 const store = createStore({
   state: {
-    currnecies: [],
-    activeComponent: 0,
-    filterCurrencies: []
+    currnecies: [], // Список валют
+    activeComponent: 0, // Активный компонент главной страницы
+    filterCurrencies: [] // Фильтрируемы список валют
   },
 
   mutations,
