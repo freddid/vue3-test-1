@@ -1,13 +1,13 @@
 <script setup>
 import { useStore } from "vuex";
-const store = useStore();
+const { commit } = useStore();
 </script>
 
 <template>
   <div class="flex pb-10px justify-center">
     <input
       class="input-search"
-      @input="store.commit('FILTER_CURRENCIES', $event.target.value)"
+      @input="commit('FILTER_CURRENCIES', $event.target.value)"
       placeholder="Поиск валюты"
       type="text"
     />
